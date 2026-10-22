@@ -2,36 +2,29 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+}
+
+:root {
+    --cor-primaria: #0366d6;
+    --cor-fundo: #f4f4f4;
+    --cor-texto: #333;
+    --cor-texto-claro: #666;
+    --cor-header: #24292e;
+    --cor-card: #ffffff;
+    --fonte-titulo: 'Space Grotesk', sans-serif;
+    --fonte-corpo: 'Inter', sans-serif;
 }
 
 body {
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
     line-height: 1.6;
+    font-family: var(--fonte-corpo);
 }
 
-header {
-    background-color: #24292e;
-    color: white;
-    padding: 2rem;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-section {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-h2 {
-    margin-bottom: 1rem;
-    color: #24292e;
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    letter-spacing: -0.5px;
 }
 
 .projeto {
@@ -42,9 +35,95 @@ h2 {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.projeto a {
-    color: #0366d6;
+.pai {
+    display: flex;           
+    justify-content: center; 
+    gap: 2rem;               
+    align-items: center;     
+}
+
+header {
+    background-color: var(--cor-header);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.5rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    flex-wrap: wrap; /* boa prática: permite quebrar linha em telas pequenas */
+}
+
+nav a {
+    color: white;
     text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    font-weight: 600;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+section {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.grade-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.projeto {
+    background-color: var(--cor-card);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #e1e4e8;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projeto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.projeto h3 {
+    margin-bottom: 0.5rem;
+    color: var(--cor-header);
+}
+
+.projeto p {
+    color: var(--cor-texto-claro);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.projeto a {
+    display: inline-block;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
 .projeto a:hover {
@@ -56,4 +135,58 @@ footer {
     padding: 1rem;
     background-color: #24292e;
     color: white;
+}
+
+/* ===== Seção Sobre ===== */
+#sobre {
+    max-width: 65ch;
+    margin: 0 auto;
+}
+
+#sobre p {
+    margin-bottom: 1rem;
+    color: var(--cor-texto-claro);
+}
+
+#sobre ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+#sobre li {
+    background-color: var(--cor-card);
+    border: 1px solid #e1e4e8;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--cor-texto);
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    section {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        gap: 0.5rem;
+    }
+
+    nav a {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.9rem;
+    }
 }
