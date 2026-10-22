@@ -10,15 +10,19 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
         <title>Portfólio | VinyIsCollapsing</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'></svg>">
         <link rel="stylesheet" href="css/style.css">
     </head>
 <body>
 
-    <!-- Cabeçalho -->
+    <!-- Cabecalho -->
     <header>
         <h1>VinyIsCollapsing</h1>
         <p>Desenvolvedor em formação | Robótica, Modelagem 3D e Programação</p>
+        <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+            ☰
+        </button>
+        <button class="tema-toggle" aria-label="Alternar tema">🌙</button>
         <nav>
             <ul>
                 <li><a href="#sobre">   Sobre</a></li>
@@ -46,7 +50,7 @@
                 <li>STM32/ESP32</li>
             </ul>
         </section>
-        <!-- Seção de Projetos -->
+        <!-- Projetos -->
         <section id="projetos">
             <h2>Meus Projetos</h2>
             <div class="grade-projetos">
@@ -78,18 +82,19 @@
             </div>
         </section>
 
-        <!-- Seção de Contato -->
+        <!-- Contato -->
         <section id="contato">
             <h2>Contato</h2>
             <p>Me encontre no <a href="https://github.com/vinyIsCollapsing" target="_blank">GitHub</a></p>
         </section>
     </main>
 
-    <!-- Rodapé -->
+    <!-- Rodape -->
     <footer>
         <p>&copy; 2026 vinyIsCollapsing</p>
     </footer>
 
+    <button class="voltar-topo" aria-label="Voltar ao topo">↑</button>
     <script src="js/script.js"></script>
 </body>
 </html>
