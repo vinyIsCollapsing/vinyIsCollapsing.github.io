@@ -48,9 +48,7 @@
         <section id="sobre">
             <h2>Sobre mim</h2>
             <p>
-                Hey ho! Sou estudante de engenharia com interesse em robótica, arte e programação. 
-                Nas horas vagas, eu trabalho como fofoqueiro profissional.
-                Nas horas não vagas, eu trabalho como um profissional fofoqueiro.
+                <span id="texto-digitado"></span><span class="cursor" aria-hidden="true">|</span>
             </p>
             <h3>Habilidades</h3>
             <ul>
@@ -68,9 +66,24 @@
             <h2>Meus Projetos</h2>
             <div class="grade-projetos">
                 <article class="projeto">
-                    <h3>Modelisation3D</h3>
-                    <p>Projeto de modelagem 3D desenvolvido em MATLAB.</p>
-                    <a href="https://github.com/vinyIsCollapsing/Modelisation3D" target="_blank">Ver no GitHub</a>
+                    <div class="projeto-imagem">
+                        <img src="assets/circle_trajectory.gif" alt="KUKA LBR4+ desenhando um círculo">
+                    </div>
+                    <div class="projeto-conteudo">
+                        <h3>Modelisation3D</h3>
+                        <p>
+                            Modelagem cinemática e controle de um KUKA LBR4+ (7 eixos) em Octave. 
+                            Inclui cinemática direta/inversa, Jacobiano e integração em tempo real com o CoppeliaSim.
+                        </p>
+                        <ul class="projeto-tags">
+                            <li>Octave</li>
+                            <li>CoppeliaSim</li>
+                            <li>Kuka LBR4+ (7-DOF)</li>
+                            <li>Erro < 1 mm</li>
+                            <li>ZeroMQ API</li>
+                        </ul>
+                        <a href="https://github.com/vinyIsCollapsing/Modelisation3D" target="_blank">Ver no GitHub</a>
+                    </div>
                 </article>
                 <article class="projeto">
                     <h3>ArchitectureCircuitsNumeriques</h3>

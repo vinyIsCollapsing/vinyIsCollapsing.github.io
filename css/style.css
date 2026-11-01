@@ -302,3 +302,66 @@ body.dark {
 .skip-link:focus {
     top: 0;
 }
+
+.cursor {
+    display: inline-block;
+    color: var(--cor-primaria);
+    font-weight: bold;
+    animation: piscar 0.8s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor { animation: none; }
+}
+
+/* ===== Card Especial - Modelisation3D ===== */
+.projeto-imagem {
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border: 1px solid var(--cor-borda);
+}
+
+.projeto-imagem img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.projeto:hover .projeto-imagem img {
+    transform: scale(1.02); /* Efeito sutil de zoom no GIF ao passar o mouse */
+}
+
+.projeto-conteudo {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Tags de tecnologias/resultados dentro do card */
+.projeto-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.75rem 0 1rem 0;
+    padding: 0;
+}
+
+.projeto-tags li {
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-claro);
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
