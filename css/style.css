@@ -14,6 +14,7 @@
     --fonte-titulo: 'Space Grotesk', sans-serif;
     --fonte-corpo: 'Inter', sans-serif;
     --cor-borda: #e1e4e8;
+    --cor-projeto-card: #0366d6;
 }
 
 body {
@@ -90,11 +91,8 @@ section {
     background-color: var(--cor-card);
     padding: 1.5rem;
     border-radius: 10px;
-    border: 1px solid #e1e4e8;
+    border: 1px solid var(--cor-borda);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    opacity: 0;
-    transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -154,7 +152,7 @@ footer {
 
 #sobre li {
     background-color: var(--cor-card);
-    border: 1px solid #e1e4e8;
+    border: 1px solid var(--cor-borda);
     padding: 0.35rem 0.85rem;
     border-radius: 20px;
     font-size: 0.9rem;
@@ -249,12 +247,6 @@ footer {
 .voltar-topo:hover {
     background-color: #0250a8;
     transform: translateY(-2px);
-}
-
-/* Animação dos cards */
-.projeto.visivel {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 body.dark {
@@ -401,4 +393,13 @@ body.dark {
 .idioma-btn.ativo {
     background-color: white;
     color: var(--cor-header);
+}
+
+.js .projeto {
+    opacity: 0;
+    transform: translateY(20px);
+}
+.js .projeto.visivel {
+    opacity: 1;
+    transform: translateY(0);
 }

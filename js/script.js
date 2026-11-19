@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    document.documentElement.classList.add("js");
 
     /* ============================================
        1. TEMA CLARO / ESCURO
@@ -19,16 +20,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ============================================
-       2. MENU MOBILE
-       ============================================ */
+        2. MENU MOBILE
+        ============================================ */
     const menuToggle = document.querySelector(".menu-toggle");
     const nav = document.querySelector("nav");
-
+    
+    function fecharMenu() {
+        if (!nav || !menuToggle) return;
+        nav.classList.remove("aberto");
+        menuToggle.setAttribute("aria-expanded", "false");
+    }
+    
     if (menuToggle && nav) {
         menuToggle.addEventListener("click", function () {
-            nav.classList.toggle("aberto");
-            const aberto = nav.classList.contains("aberto");
+            const aberto = nav.classList.toggle("aberto");
             menuToggle.setAttribute("aria-expanded", aberto);
+        });
+    
+        // Fecha ao clicar em qualquer link do menu
+        nav.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", fecharMenu);
+        });
+    
+        // Fecha com a tecla Esc
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") fecharMenu();
         });
     }
 
