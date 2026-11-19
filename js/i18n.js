@@ -29,8 +29,11 @@
            "ep.alt": "Placas micro:bit sendo sincronizadas",
            "ep.desc": "Um pequeno enxame de placas BBC micro:bit v2 sem líder. Cada uma segue uma regra local simples, e, com o tempo, o grupo inteiro acaba trabalhando em conjunto.",
            "iso.desc": 'Protótipo de jogo isométrico 2D <br><b>Classe:</b> Protótipo <br><b>Nível:</b> 5 (13 testes, build reproduzível) <br><b>Alinhamento:</b> Neutro e Modular <br><b>Habilidades:</b> Geração Procedural, FSM de 8 Direções, Upcast de Resolução<br><b>Fraqueza:</b> Inimigos (ainda não implementados)<br><small style="color: #888; font-style: italic;">— Assinado: O Programador, responsável técnico pelo caos</small>',
-           "perc.desc": "Projeto de percepção computacional em C++.",
-           "poo.desc": "Projeto de Programação Orientada a Objetos e Modelagem em C++.",
+           "heimlich.titulo": "Protótipo Heimlich",
+           "heimlich.alt": "Protótipo do dispositivo de auxílio à manobra de Heimlich",
+           "heimlich.desc": "Protótipo eletrônico de baixo custo que orienta a aplicação da manobra de Heimlich, com sensor de força, Arduino e áudios de orientação. Projeto de design estudantil da PUCRS, desenvolvido por uma equipe de cinco integrantes. Responsável pela modelagem e impressão 3D do protótipo.",
+           "heimlich.premio": "Projeto vencedor mundial no IEEE CAS Student Design Competition (ISCAS 2023).",
+           "projetos.relatorio": "Ver relatório (PDF)",
            "contato.titulo": "Contato",
            "contato.texto": "Me encontre no"
        },
@@ -56,8 +59,11 @@
            "ep.alt": "Synchronized micro:bit boards",
            "ep.desc": "A small leaderless swarm of BBC micro:bit v2 boards. Each one follows a simple local rule, and over time the whole group ends up working together.",
            "iso.desc": '2D isometric game prototype <br><b>Class:</b> Prototype <br><b>Level:</b> 5 (13 tests, reproducible build) <br><b>Alignment:</b> Neutral and Modular <br><b>Skills:</b> Procedural generation, 8-direction FSM, Resolution upcast<br><b>Weakness:</b> Enemies (not yet implemented)<br><small style="color: #888; font-style: italic;">— Signed: The Programmer, technical lead of the chaos</small>',
-           "perc.desc": "Computer perception project in C++.",
-           "poo.desc": "Object-oriented programming and modeling project in C++.",
+           "heimlich.titulo": "Heimlich Prototype",
+           "heimlich.alt": "Prototype of the device assisting the Heimlich maneuver",
+           "heimlich.desc": "Low-cost electronic prototype that guides the application of the Heimlich maneuver, with a force sensor, an Arduino and voice cues. Student design project from PUCRS, developed by a five-member team. Responsible for the 3D modeling and 3D printing of the prototype.",
+           "heimlich.premio": "World-winning project, IEEE CAS Student Design Competition (ISCAS 2023).",
+           "projetos.relatorio": "View report (PDF)",
            "contato.titulo": "Contact",
            "contato.texto": "Find me on"
        },
@@ -83,13 +89,16 @@
            "ep.alt": "Cartes micro:bit synchronisées",
            "ep.desc": "Un petit essaim sans chef de cartes BBC micro:bit v2. Chacune suit une règle locale simple et, avec le temps, le groupe entier finit par travailler ensemble.",
            "iso.desc": 'Prototype de jeu isométrique 2D <br><b>Classe :</b> Prototype <br><b>Niveau :</b> 5 (13 tests, build reproductible) <br><b>Alignement :</b> Neutre et Modulaire <br><b>Compétences :</b> Génération procédurale, FSM à 8 directions, Upcast de résolution<br><b>Faiblesse :</b> Ennemis (pas encore implémentés)<br><small style="color: #888; font-style: italic;">— Signé : Le Programmeur, responsable technique du chaos</small>',
-           "perc.desc": "Projet de perception par ordinateur en C++.",
-           "poo.desc": "Projet de programmation orientée objet et modélisation en C++.",
+           "heimlich.titulo": "Prototype Heimlich",
+           "heimlich.alt": "Prototype du dispositif d'aide à la manœuvre de Heimlich",
+           "heimlich.desc": "Prototype électronique à faible coût qui guide la réalisation de la manœuvre de Heimlich, avec un capteur de force, un Arduino et des indications sonores. Projet d'études de la PUCRS, réalisé par une équipe de cinq membres. Responsable de la modélisation et de l'impression 3D du prototype.",
+           "heimlich.premio": "Projet lauréat au niveau mondial, IEEE CAS Student Design Competition (ISCAS 2023).",
+           "projetos.relatorio": "Voir le rapport (PDF)",
            "contato.titulo": "Contact",
            "contato.texto": "Retrouvez-moi sur"
        }
    };
-   
+
    let idiomaAtual = IDIOMA_PADRAO;
    
    function detectarIdioma() {

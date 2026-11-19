@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (voltarTopo) {
         window.addEventListener("scroll", function () {
-            if (window.scrollY > 300) {   // ← scrollY, não scrollX!
+            if (window.scrollY > 300) {
                 voltarTopo.classList.add("visivel");
             } else {
                 voltarTopo.classList.remove("visivel");
