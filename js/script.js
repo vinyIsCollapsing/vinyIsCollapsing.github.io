@@ -70,99 +70,90 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* ============================================
-       5. ANIMAÇÃO MÁQUINA DE ESCREVER (persistente)
+        /* ============================================
+       5. ANIMAÇÃO MÁQUINA DE ESCREVER (persistente + i18n)
        ============================================ */
-    const texto = "Bom dia, boa tarde ou boa noite. Estudante de engenharia com interesse em robótica, arte e programação. Nas horas vagas, eu trabalho como fofoqueiro profissional. Nas horas não vagas, eu trabalho como um profissional fofoqueiro.";
-    const elementoTexto = document.getElementById("texto-digitado");
-    const elementoCursor = document.querySelector(".cursor");
-    const CHAVE_ANIMACAO = "animacaoTextoConcluida";
-
-    const reduzMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    function jaViuAnimacao() {
-        try {
-            return localStorage.getItem(CHAVE_ANIMACAO) === "sim";
-        } catch (e) {
-            return false;
-        }
-    }
-
-    function marcarComoVista() {
-        try {
-            localStorage.setItem(CHAVE_ANIMACAO, "sim");
-        } catch (e) {
-            // localStorage indisponível — ignora silenciosamente
-        }
-    }
-
-    function mostrarTextoDireto() {
-        if (elementoTexto) elementoTexto.textContent = texto;
-        if (elementoCursor) elementoCursor.style.display = "none";
-    }
-
-    function iniciarAnimacao() {
-        if (!elementoTexto) return;
-
-        // Já viu ou prefere menos movimento → mostra direto
-        if (jaViuAnimacao() || reduzMovimento) {
-            mostrarTextoDireto();
-            return;
-        }
-
-        // Prepara para animar
-        let indice = 0;
-        elementoTexto.textContent = "";
-        if (elementoCursor) elementoCursor.style.display = "inline-block";
-
-        function digitar() {
-            if (indice < texto.length) {
-                const caractere = texto[indice];
-                elementoTexto.textContent += caractere;
-                indice++;
-                const pausa = /[.,!?]/.test(caractere) ? 300 : 40;
-                setTimeout(digitar, pausa);
-            } else {
-                // Terminou → marca como vista e esconde o cursor
-                marcarComoVista();
-                if (elementoCursor) elementoCursor.style.display = "none";
-            }
-        }
-
-        // Inicia só quando a seção entra na tela
-        const observerTexto = new IntersectionObserver(function (entradas) {
-            entradas.forEach(function (entrada) {
-                if (entrada.isIntersecting) {
-                    digitar();
-                    observerTexto.unobserve(entrada.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        observerTexto.observe(elementoTexto.closest("section"));
-    }
-
-    iniciarAnimacao();
-
-    // Replay: reseta o localStorage e rola até a seção
-    const replayBtn = document.querySelector(".replay-animacao");
-    if (replayBtn) {
-        replayBtn.addEventListener("click", function () {
-            try {
-                localStorage.removeItem(CHAVE_ANIMACAO);
-            } catch (e) {}
-
-            if (elementoTexto) elementoTexto.textContent = "";
-            if (elementoCursor) elementoCursor.style.display = "inline-block";
-
-            const secaoSobre = document.getElementById("sobre");
-            if (secaoSobre) {
-                secaoSobre.scrollIntoView({ behavior: "smooth" });
-                setTimeout(iniciarAnimacao, 600);
-            } else {
-                iniciarAnimacao();
-            }
-        });
-    }
-
-});
+       const elementoTexto = document.getElementById("texto-digitado");
+       const elementoCursor = document.querySelector(".cursor");
+       const CHAVE_ANIMACAO = "animacaoTextoConcluida";
+       const reduzMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+   
+       let animando = false;
+       let timerDigitacao = null;
+   
+       function jaViuAnimacao() {
+           try {
+               return localStorage.getItem(CHAVE_ANIMACAO) === "sim";
+           } catch (e) {
+               return false;
+           }
+       }
+   
+       function marcarComoVista() {
+           try {
+               localStorage.setItem(CHAVE_ANIMACAO, "sim");
+           } catch (e) {}
+       }
+   
+       function mostrarTextoDireto() {
+           clearTimeout(timerDigitacao);
+           animando = false;
+           if (elementoTexto) elementoTexto.textContent = traduzir("sobre.texto");
+           if (elementoCursor) elementoCursor.style.display = "none";
+       }
+   
+       function iniciarAnimacao() {
+           if (!elementoTexto) return;
+   
+           if (jaViuAnimacao() || reduzMovimento) {
+               mostrarTextoDireto();
+               return;
+           }
+   
+           const texto = traduzir("sobre.texto");
+           let indice = 0;
+           animando = true;
+           elementoTexto.textContent = "";
+           if (elementoCursor) elementoCursor.style.display = "inline-block";
+   
+           function digitar() {
+               if (!animando) return;
+   
+               if (indice < texto.length) {
+                   const caractere = texto[indice];
+                   elementoTexto.textContent += caractere;
+                   indice++;
+                   const pausa = /[.,!?]/.test(caractere) ? 300 : 40;
+                   timerDigitacao = setTimeout(digitar, pausa);
+               } else {
+                   animando = false;
+                   marcarComoVista();
+                   if (elementoCursor) elementoCursor.style.display = "none";
+               }
+           }
+   
+           const observerTexto = new IntersectionObserver(function (entradas) {
+               entradas.forEach(function (entrada) {
+                   if (entrada.isIntersecting) {
+                       digitar();
+                       observerTexto.unobserve(entrada.target);
+                   }
+               });
+           }, { threshold: 0.5 });
+   
+           observerTexto.observe(elementoTexto.closest("section"));
+       }
+   
+       iniciarAnimacao();
+   
+       // Ao trocar de idioma: se a digitação estiver em andamento, mostra o texto completo
+       // no novo idioma; caso contrário, apenas atualiza o texto já exibido.
+       document.addEventListener("idiomaAlterado", function () {
+           if (animando) {
+               mostrarTextoDireto();
+           } else if (elementoTexto) {
+               elementoTexto.textContent = traduzir("sobre.texto");
+           }
+       });
+   
+   });

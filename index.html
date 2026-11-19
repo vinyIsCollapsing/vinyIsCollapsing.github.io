@@ -16,7 +16,7 @@
 
         <!-- Canonical -->
         <link rel="canonical" href="https://vinyIsCollapsing.github.io">
-        
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -26,31 +26,39 @@
     </head>
 
 <body>
-    <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+    <a href="#conteudo" class="skip-link" data-i18n="pular">Pular para o conteúdo</a>
+
     <!-- Cabecalho -->
     <header>
+        <!-- Seletor de idioma -->
+        <div class="idioma-switcher" role="group" data-i18n-aria="idioma_grupo" aria-label="Idioma">
+            <button class="idioma-btn" data-idioma="pt" aria-pressed="false">PT</button>
+            <button class="idioma-btn" data-idioma="en" aria-pressed="false">EN</button>
+            <button class="idioma-btn" data-idioma="fr" aria-pressed="false">FR</button>
+        </div>
+
         <h1>VinyIsCollapsing</h1>
-        <p>Desenvolvedor | Robótica, Modelagem 3D e Programação</p>
-        <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <p data-i18n="subtitulo">Desenvolvedor | Robótica, Modelagem 3D e Programação</p>
+        <button class="menu-toggle" data-i18n-aria="menu_abrir" aria-label="Abrir menu" aria-expanded="false">
             ☰
         </button>
-        <button class="tema-toggle" aria-label="Alternar tema">🌙</button>
+        <button class="tema-toggle" data-i18n-aria="tema_alternar" aria-label="Alternar tema">🌙</button>
         <nav>
             <ul>
-                <li><a href="#sobre">   Sobre</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#contato"> Contato</a></li>
+                <li><a href="#sobre" data-i18n="nav.sobre">Sobre</a></li>
+                <li><a href="#projetos" data-i18n="nav.projetos">Projetos</a></li>
+                <li><a href="#contato" data-i18n="nav.contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <main id="conteudo">
         <section id="sobre">
-            <h2>Sobre mim</h2>
+            <h2 data-i18n="sobre.titulo">Sobre mim</h2>
             <p>
                 <span id="texto-digitado"></span><span class="cursor" aria-hidden="true">|</span>
             </p>
-            <h3>Habilidades</h3>
+            <h3 data-i18n="sobre.habilidades">Habilidades</h3>
             <ul>
                 <li>C/C++</li>
                 <li>Python</li>
@@ -63,37 +71,37 @@
 
         <!-- Projetos -->
         <section id="projetos">
-            <h2>Meus Projetos</h2>
+            <h2 data-i18n="projetos.titulo">Meus Projetos</h2>
             <div class="grade-projetos">
                 <article class="projeto">
                     <div class="projeto-imagem">
-                        <img src="assets/circle_trajectory.gif" alt="KUKA LBR4+ desenhando um círculo">
+                        <img src="assets/circle_trajectory.gif" alt="KUKA LBR4+ desenhando um círculo" data-i18n-alt="m3d.alt">
                     </div>
                     <div class="projeto-conteudo">
                         <h3>Modelisation3D</h3>
-                        <p>
-                            Modelagem cinemática e controle de um KUKA LBR4+ (7 eixos) em Octave. 
+                        <p data-i18n="m3d.desc">
+                            Modelagem cinemática e controle de um KUKA LBR4+ (7 eixos) em Octave.
                             Inclui cinemática direta/inversa, Jacobiano e integração em tempo real com o CoppeliaSim.
                         </p>
                         <ul class="projeto-tags">
                             <li>Octave</li>
                             <li>CoppeliaSim</li>
                             <li>Kuka LBR4+ (7-DOF)</li>
-                            <li>Erro < 1 mm</li>
+                            <li>Erro &lt; 1 mm</li>
                             <li>ZeroMQ API</li>
                         </ul>
-                        <a href="https://github.com/vinyIsCollapsing/Modelisation3D" target="_blank">Ver no GitHub</a>
+                        <a href="https://github.com/vinyIsCollapsing/Modelisation3D" target="_blank" data-i18n="projetos.ver">Ver no GitHub</a>
                     </div>
                 </article>
 
                 <article class="projeto">
                     <div class="projeto-imagem">
-                        <img src="assets/syncWave.gif" alt="Microbit V2 sendo sincronizadas">
+                        <img src="assets/syncWave.gif" alt="Microbit V2 sendo sincronizadas" data-i18n-alt="ep.alt">
                     </div>
                     <div class="projeto-conteudo">
                         <h3>EmergingConstellation</h3>
-                        <p>
-                            Um pequeno enxame de placas BBC micro:bit v2 sem líder. 
+                        <p data-i18n="ep.desc">
+                            Um pequeno enxame de placas BBC micro:bit v2 sem líder.
                             Cada uma segue uma regra local simples, e, com o tempo, o grupo inteiro acaba trabalhando em conjunto.
                         </p>
                         <ul class="projeto-tags">
@@ -101,7 +109,7 @@
                             <li>PlatformIO</li>
                             <li>BBC Microbit V2</li>
                         </ul>
-                        <a href="https://github.com/vinyIsCollapsing/EmergingConstellation" target="_blank">Ver no GitHub</a>
+                        <a href="https://github.com/vinyIsCollapsing/EmergingConstellation" target="_blank" data-i18n="projetos.ver">Ver no GitHub</a>
                     </div>
                 </article>
 
@@ -111,7 +119,7 @@
                     </div>
                     <div class="projeto-conteudo">
                         <h3>IsometricGame</h3>
-                        <p>
+                        <p data-i18n-html="iso.desc">
                             Protótipo de jogo isométrico 2D <br>
                             <b>Classe:</b> Protótipo <br>
                             <b>Nível:</b> 5 (13 testes, build reproduzível) <br>
@@ -129,27 +137,27 @@
                             <li>CMake</li>
                             <li>Catch2 v3</li>
                         </ul>
-                        <a href="https://github.com/vinyIsCollapsing/GameIsometric" target="_blank">Ver no GitHub</a>
+                        <a href="https://github.com/vinyIsCollapsing/GameIsometric" target="_blank" data-i18n="projetos.ver">Ver no GitHub</a>
                     </div>
                 </article>
 
                 <article class="projeto">
                     <h3>Perception</h3>
-                    <p>Projeto de percepção computacional em C++.</p>
-                    <a href="https://github.com/vinyIsCollapsing/Perception" target="_blank">Ver no GitHub</a>
+                    <p data-i18n="perc.desc">Projeto de percepção computacional em C++.</p>
+                    <a href="https://github.com/vinyIsCollapsing/Perception" target="_blank" data-i18n="projetos.ver">Ver no GitHub</a>
                 </article>
                 <article class="projeto">
                     <h3>POOetModelisation</h3>
-                    <p>Projeto de Programação Orientada a Objetos e Modelagem em C++.</p>
-                    <a href="https://github.com/vinyIsCollapsing/POOetModelisation" target="_blank">Ver no GitHub</a>
+                    <p data-i18n="poo.desc">Projeto de Programação Orientada a Objetos e Modelagem em C++.</p>
+                    <a href="https://github.com/vinyIsCollapsing/POOetModelisation" target="_blank" data-i18n="projetos.ver">Ver no GitHub</a>
                 </article>
             </div>
         </section>
 
         <!-- Contato -->
         <section id="contato">
-            <h2>Contato</h2>
-            <p>Me encontre no <a href="https://github.com/vinyIsCollapsing" target="_blank">GitHub</a></p>
+            <h2 data-i18n="contato.titulo">Contato</h2>
+            <p><span data-i18n="contato.texto">Me encontre no</span> <a href="https://github.com/vinyIsCollapsing" target="_blank">GitHub</a></p>
         </section>
     </main>
 
@@ -158,7 +166,9 @@
         <p>&copy; 2026 vinyIsCollapsing</p>
     </footer>
 
-    <button class="voltar-topo" aria-label="Voltar ao topo">↑</button>
+    <button class="voltar-topo" data-i18n-aria="topo_voltar" aria-label="Voltar ao topo">↑</button>
+
+    <script src="js/i18n.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

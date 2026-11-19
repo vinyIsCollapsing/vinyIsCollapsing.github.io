@@ -365,3 +365,40 @@ body.dark {
     font-size: 0.75rem;
     font-weight: 600;
 }
+
+/* ===== Seletor de idioma ===== */
+.idioma-switcher {
+    display: inline-flex;
+    align-items: stretch;
+    margin: 0 auto 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.idioma-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: var(--fonte-titulo);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0.35rem 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.idioma-btn + .idioma-btn {
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.idioma-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.idioma-btn.ativo {
+    background-color: white;
+    color: var(--cor-header);
+}
